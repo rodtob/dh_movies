@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<%-include('partials/head') %> 
+  <body>
+    <h1><%= title %></h1>
+      <section class="listaPelis">
+        <% pelis.forEach(element => { %>
+          <a href="/movies/detail/<%= element.id%>"><%= element.title%></a>
+          <% }); %> 
+      </section>
+      <%-include('partials/footer') %> 
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<%-include('partials/head') %> 
+  <body>
+    <h1><%= title %></h1>
+    <p>Bienvenidos a DH Movies el mejor sitio para encontrar las mejores
+      películas, incluso mucho mejor que Netflix, Cuevana y PopCorn</p>
+      <section class="listaPelis">
+        <% pelis.forEach(element => { %>
+          <a href="movies/detail/<%= element.id%>"><%= element.title%></a>
+          <% }); %> 
+      </section>
+      <%-include('partials/footer') %> 
+  </body>
+</html>
