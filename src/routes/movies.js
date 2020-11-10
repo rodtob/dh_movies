@@ -44,8 +44,18 @@ router.get('/recommended', function(req, res) {
   })
 });
 
+router.get('/search', function(req, res) {
+    res.render('search', { title: 'DhMovies'});
+  });
+
+
+
 router.post('/search', function(req, res) {
-  db.Peliculas.findAll({ 
+  db.Peliculas.findAll({where:{
+    title : {
+      [Op.like]: '%' + req.body.labusqueda + '%'
+    }
+  } 
   })
   .then((resultado)=>{
     let pelis = resultado

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<%-include('partials/head') %> 
+  <body>
+    <h1><%= title %></h1>
+    <form action="/movies/search" method="POST">
+      <input type="text" name="labusqueda" placeholder="Busque nomás">
+      <input type="submit" value="buscar">
+    </form>
+      <%-include('partials/footer') %> 
+  </body>
+</html>
