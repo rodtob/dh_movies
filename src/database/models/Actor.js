@@ -24,7 +24,7 @@ let cols ={
 }
     let config = {
     tableName: 'actors',
-    timestamps: false
+    // timestamps: false
 }
 
 

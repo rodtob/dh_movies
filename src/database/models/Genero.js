@@ -21,7 +21,7 @@ let cols ={
 }
     let config = {
     tableName: 'genres',
-    timestamps: false
+    // timestamps: false
 }
 
 

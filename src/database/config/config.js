@@ -4,7 +4,11 @@ module.exports = {
     "password": null,
     "database": "movies_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "paranoid": true,
+    define: {
+      underscored: true
+    }
   },
   "test": {
     "username": "root",

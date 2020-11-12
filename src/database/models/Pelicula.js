@@ -30,7 +30,7 @@ let cols ={
 }
     let config = {
     tableName: 'movies',
-    timestamps: false
+    // timestamps: false
 }
 
 
