@@ -1,5 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,6 +19,124 @@ a {
 
 .listaPelis{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 4%;
+}
+
+.titulodh{
+  padding: 4%;
+  margin-top: 4%;
+  width: 40%;
+}
+
+.parteMain{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  /* background-color: #214252; */
+  /* background-color: #f05454; */
+  background-color: #af2d2d;
+  /* background-color: #ce6262; */
+}
+
+.unapeli{
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  height: 40vh;
+  text-align: center;
+}
+
+.infoComienzo{
+  height: 20vh;
+  background-color: #818181;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4%;
+}
+
+.titulodhfooter{
+  background-color: #cecece;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkhome{
+  width: 10%;
+}
+
+.ficha{
+  width: 40%;
+  height: 70vh;
+  background-color: #214252;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: solid 2px white;
+}
+
+.eltituloficha{
+  padding: 2%;
+  margin: 2%;
+  border: solid 2px white;
+  color: white;
+  background-color: #e03939;
+}
+
+.botones{
+  display: flex;
+  width: 20%;
+  margin: 2%;
+  justify-content: space-between;
+}
+
+.boton{
+  all: unset;
+   background-color: #ce6262;
+   padding: 7%;
+   margin: 2%;
+   cursor: pointer;
+   transition: 1s all;
+   color: white;
+   text-transform: uppercase;
+}
+
+.boton:hover{
+   background-color: #e9b1b1;
+}
+
+.losformsedit{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  text-align: center;
+  margin-top: 10vh;
+  justify-content: space-between;
+}
+
+.uninput{
+  width: 100%;
+  height: 10vh;
+  margin: 1%;
+}
+
+.unsubmit{
+  all: unset;
+  width: 100%;
+  height: 10vh;
+  margin: 1%;
+  background-color: #214252;
+  color: white;
+  text-transform: uppercase;
 }

@@ -1,9 +1,17 @@
 const db = require('../database/models')
+const moment = require('moment')
+const { Op } = require("sequelize");
 
 module.exports = {
     index: async (req,res) =>{
         try{
-            const pelis =  await db.Peliculas.findAll({ order: [
+            const pelis =  await db.Peliculas.findAll({ 
+            where: {
+              deleted_at:{
+                [Op.is]:null
+              }
+            },
+             order: [
             ['title', 'ASC']]
           })
           res.render('index', { title: 'DhMovies', pelis });
@@ -14,7 +22,11 @@ module.exports = {
 
     },
     new: async (req, res) => {
-       const pelis = await db.Peliculas.findAll({ 
+       const pelis = await db.Peliculas.findAll({  where: {
+          deleted_at:{
+          [Op.is]:null
+          }
+        },
           limit: 5,
           order: [
           ['release_date', 'DESC']]
@@ -23,7 +35,10 @@ module.exports = {
         },
     recomend: async (req, res)=>{
         const pelis = await db.Peliculas.findAll({ 
-          where: {
+          where: { 
+            deleted_at:{
+              [Op.is]:null
+            },
             rating: {
               [Op.lt]: 8.0
             }
@@ -79,5 +94,19 @@ module.exports = {
           ]
       })
       res.render('editar', { title: 'Formulario edicion', peli, generos, actores })
+    },
+    change : async (req,res) =>{
+      const peliCambiada = await db.Peliculas.findByPk(req.params.id, {include: [ 'actorPelicula', 'genero' ]})
+      await peliCambiada.removeActorPelicula(peliCambiada.actorPelicula)
+      await peliCambiada.addActorPelicula(req.body.actores)
+      await peliCambiada.update(req.body)
+      res.redirect('/')
+    },
+    delete : async(req,res) =>{
+      const peliaBorrar = await db.Peliculas.findByPk(req.params.id)
+      //borrar asociacion con actores
+      await peliaBorrar.update({deleted_at: moment().format()})
+      res.redirect('/')
     }
+  
 }

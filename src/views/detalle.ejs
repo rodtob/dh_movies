@@ -2,8 +2,10 @@
 <html>
 <%-include('partials/head') %> 
   <body>
-    <h1><%= title %></h1>
-      <section>
+    <%-include('partials/dhmovieheader') %> 
+    <section class="parteMain">
+    <h1 class="eltituloficha"><%= title %></h1>
+      <section class="ficha">
       <p>
         Rating: <%= pelis.rating %>
       </p>
@@ -25,14 +27,15 @@
       }); %>
       </p>
       </section>
-      <section>
-        <form action="">
-         <input type="submit" value="modificar">
+      <section class="botones">
+        <form action="/movies/edit/<%= pelis.id %>" method="GET">
+         <input class="boton" type="submit" value="modificar">
         </form>
-        <form action="">
-          <input type="submit" value="borrar">
+        <form  action="/movies/delete/<%= pelis.id %>?_method=DELETE" method="POST">
+          <input class="boton" type="submit" value="borrar">
          </form>
       </section>
+    </section>
       <%-include('partials/footer') %> 
   </body>
 </html>

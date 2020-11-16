@@ -26,6 +26,9 @@ let cols ={
     },
     genre_id:{
         type: dataTypes.INTEGER
+    },
+    deleted_at:{
+        type: dataTypes.DATE
     }
 }
     let config = {
