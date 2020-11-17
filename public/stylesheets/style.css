@@ -21,7 +21,7 @@
 }
 
 .titulodh{
-  padding: 4%;
+  padding-top: 4%;
   width: 40%;
   opacity: .8;
   transition: 1s all;
@@ -62,21 +62,34 @@
   /* background-color: #ce6262; */
 }
 
+.parteAMain{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  /* background-color: #214252; */
+  /* background-color: #f05454; */
+  background-color: #af2d2d;
+  /* background-color: #ce6262; */
+}
+
+
 .unapeli{
   all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 12%;
   height: 10vh;
   text-align: center;
   color: white;
   text-decoration: none;
-  font-size: 1.7vw;
+  font-size: 1.2vw;
   padding: 2%;
   margin: 2%;
   transition: 1s all;
-  border: solid .3vw white;
+  border: solid .1vw white;
   background-color: rgb(163, 14, 14);
   text-transform: uppercase;
 }
@@ -88,7 +101,7 @@
 }
 
 .unapeli:hover{
- width: 22%;
+ width: 15%;
  color: red;
 }
 
@@ -160,7 +173,7 @@
 
 .ficha{
   width: 40%;
-  height: 70vh;
+  height: 80vh;
   background-color: #214252;
   color: white;
   display: flex;
@@ -173,7 +186,7 @@
 .ficha *{
   background-color:  #2a5368;
   width: 100%;
-  height: 10vh;
+  height: 6vh;
   font-size: 2vw;
   text-align: center;
 }
