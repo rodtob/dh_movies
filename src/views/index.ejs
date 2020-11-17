@@ -4,8 +4,11 @@
   <body>
     <%-include('partials/dhmovieheader') %> 
     <section class="parteMain">
-    <p class="info">Bienvenidos a DH Movies el mejor sitio para encontrar las mejores
+      <article class="info">
+    <p class="bienvenida">Bienvenidos a DH Movies el mejor sitio para encontrar las mejores
       películas, incluso mucho mejor que Netflix, Cuevana y PopCorn</p>
+      <%-include('partials/elsearch') %> 
+    </article>
       <section class="listaPelis">
         <% pelis.forEach(element => { %>
           <a class="unapeli colorpeli<%= element.genre_id %> " href="movies/detail/<%= element.id%>">   

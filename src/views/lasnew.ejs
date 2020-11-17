@@ -6,7 +6,7 @@
     <section class="parteMain">
       <section class="listaPelis">
         <% pelis.forEach(element => { %>
-          <a href="/movies/detail/<%= element.id%>"><%= element.title%></a>
+          <a class="unapeli colorpeli<%= element.genre_id %> "  href="/movies/detail/<%= element.id%>"><%= element.title%></a>
           <% }); %> 
       </section>
     </section>

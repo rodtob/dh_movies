@@ -2,6 +2,9 @@
 <html>
 <%-include('partials/head') %> 
   <body>
+    <%-include('partials/dhmovieheader') %> 
+    <section class="parteAMain">
+      <article  class="losformsedit">
     <form action="/movies/create" method="POST">
       <label for="">Title</label>
       <input type="text" name="title">
@@ -30,8 +33,10 @@
       </select>
 
 
-      <input type="submit" value="Crea tu película">
+      <input type="submit" value="Crea tu película" class="unsubmit">
     </form>
+  </article>
+    </section>
       <%-include('partials/footer') %> 
   </body>
 </html>
