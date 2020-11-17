@@ -83,10 +83,11 @@ module.exports = {
         res.redirect('/')
     },
 
-    update : async (req, res) =>{
-        const actores = await db.Actores.findAll()
-        const generos = await db.Generos.findAll()
-        const peli = await db.Peliculas.findByPk(req.params.id,{
+    update : async (req, res) =>{      
+      try {
+        let actores = await db.Actores.findAll()
+        let generos = await db.Generos.findAll()
+        let peli = await db.Peliculas.findByPk(req.params.id,{
           include: 
           [
               { association: 'genero'},
@@ -94,8 +95,15 @@ module.exports = {
 
           ]
       })
-      res.render('editar', { title: 'Formulario edicion', peli, generos, actores })
+        peli = peli.dataValues
+        peli.release_date = moment(peli.release_date).format('YYYY-MM-DD')
+        console.log(peli.release_date)
+        res.render('editar', { title: 'Formulario edicion', peli, generos, actores })
+    } catch (error) {
+        console.log(error);
+    }       
     },
+
     change : async (req,res) =>{
       const peliCambiada = await db.Peliculas.findByPk(req.params.id, {include: [ 'actorPelicula', 'genero' ]})
       await peliCambiada.removeActorPelicula(peliCambiada.actorPelicula)
