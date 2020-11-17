@@ -10,16 +10,19 @@
         Rating: <%= pelis.rating %>
       </p>
       <p>
-        Género: <%= pelis.genero == null ? 'no tiene genero' : pelis.genero.name %>
-      </p>
-      <p>
-        Premios: <%= pelis.awards %>
+        Género: <%= pelis.genero == null ? 'no tiene género' : pelis.genero.name %>
       </p>
       <p>
         Duración: <%= pelis.length == null ? '' : pelis.length + " minutos" %>
       </p>
       <p>
         Premios: <%= pelis.awards %>
+      </p>
+      <p>
+        Actores: 
+      <% pelis.actorPelicula.forEach(element => { %>
+        <p><%= element.first_name %>   <%= element.last_name %>  </p>
+      <% }) %>
       </p>
       <p>
         Fecha de estreno: <%= pelis.release_date.toLocaleString("es-AR", {

@@ -9,17 +9,17 @@
         <article class="losformsedit">
       <form action="/movies/edit/<%= peli.id %>?_method=PUT" method="POST">
         <label for="">Title</label>
-        <input class="uninput" type="text" name="title" value="<%= peli.title %> ">
-        <label  class="uninput" for="">Rating</label>
-        <input  class="uninput" type="text" name="rating" value="<%= peli.rating %> ">
-        <label  class="uninput" for="">Awards</label>
-        <input  class="uninput" type="number" name="awards" value="<%= peli.awards %> ">
-        <label  class="uninput" for="">Fecha de estreno</label>
-        <input class="uninput" type="date" name="release_date" value="<%= peli.release_date %> ">
-        <label class="uninput" for="">Duración</label>
-        <input class="uninput" type="text" name="length" value="<%= peli.length %> ">
-        <label class="uninput" for="">Género</label>
-        <select class="uninput" name="genre_id">
+        <input  type="text" name="title" value="<%= peli.title %> ">
+        <label  for="">Rating</label>
+        <input  type="text" name="rating" value="<%= peli.rating %> ">
+        <label  for="">Awards</label>
+        <input   type="text" name="awards" value="<%= peli.awards %> ">
+        <label  for="">Fecha de estreno</label>
+        <input  type="date" name="release_date" value="<%= peli.release_date %> ">
+        <label  for="">Duración</label>
+        <input type="text" name="length" value="<%= peli.length %> ">
+        <label  for="">Género</label>
+        <select  name="genre_id">
           <% generos.forEach(genero => { %>
             <% if (peli.genre_id === genero.id) { %>
               <option value="<%= genero.id %> " selected>
@@ -30,7 +30,7 @@
         </select>
   
         <label for="">Actores</label>
-        <select class="uninput" name="actores" multiple>
+        <select class="losactores" name="actores" multiple>
           <% actores.forEach(actor => { %>
             <% if(peli.actorPelicula.some(actorPelicula => actorPelicula.id == actor.id)) { %> 
               <option value="<%= actor.id %> " selected>

@@ -64,7 +64,8 @@ module.exports = {
         const pelis = await db.Peliculas.findByPk(req.params.id,{
           include: 
           [
-              { association: 'genero'}
+              { association: 'genero'},
+              { association: "actorPelicula"}
           ]
       })
       res.render('detalle', { title: pelis.title, pelis })
@@ -103,8 +104,14 @@ module.exports = {
       res.redirect('/')
     },
     delete : async(req,res) =>{
-      const peliaBorrar = await db.Peliculas.findByPk(req.params.id)
-      //borrar asociacion con actores
+      const peliaBorrar = await db.Peliculas.findByPk(req.params.id,{
+        include: 
+        [
+            { association: 'genero'},
+            { association: "actorPelicula"}
+        ]
+    })
+      await peliaBorrar.removeActorPelicula(peliaBorrar.actorPelicula)
       await peliaBorrar.update({deleted_at: moment().format()})
       res.redirect('/')
     }
